@@ -123,11 +123,11 @@ function makePersonObject(ID, Name, Email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(object) {
-  return 'Hello, my Name is ' + object.name;
+function getName(person) {
+  return 'Hello, my name is ' + person.name;
 }
 
-console.log(getName());
+
 
 /**
  * ### Challenge `appleIndex`
@@ -144,8 +144,14 @@ console.log(getName());
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(fruits) {
+  
+  for(let i=0; i<fruits.length; i++){
+    if(fruits[i] === 'apple'){
+      return i;
+    }
+  }
+  
 }
 
 /**
@@ -163,8 +169,19 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+
+function isItAnApple(fruitsArray) {
+  var findPrivateApple = [];
+
+  for(i = 0; i < fruitsArray.length; i++){
+    if(fruitsArray[i]==='apple'){
+      findPrivateApple.push(true);
+    }
+    else{
+      findPrivateApple[i] = false;
+    }
+  } 
+  return findPrivateApple;
 }
 
 
