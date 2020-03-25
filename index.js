@@ -171,17 +171,21 @@ function appleIndex(fruits) {
 */
 
 function isItAnApple(fruitsArray) {
-  var findPrivateApple = [];
+  var findApple = [];
 
+  
   for(i = 0; i < fruitsArray.length; i++){
+  
     if(fruitsArray[i]==='apple'){
-      findPrivateApple.push(true);
+     
+      findApple[i] = true;
     }
     else{
-      findPrivateApple[i] = false;
+     
+      findApple[i] = false;
     }
   } 
-  return findPrivateApple;
+  return findApple;
 }
 
 
@@ -216,6 +220,7 @@ var inventory = [
   *
   * NOTE: This example has been completed for you.
 **/
+// @ts-ignore
 function get3rdCar(inventory) {
   const the3rd = inventory[2];
   return `The is a ${the3rd.car_make} ${the3rd.car_model}`
@@ -239,7 +244,8 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  const message = `This is a ${inventory[index].car_make} ${inventory[index].car_model}`;
+  return message;
 }
 
 /**
@@ -253,8 +259,8 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+    return `This is a ${inventory[inventory.length-1].car_make} ${inventory[inventory.length-1].car_model}`;
 }
 
 /**
@@ -266,9 +272,14 @@ function getLastCarInfo(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
-}
+function getModelYears(inventory) {
+    let carYears = [];
+    for(let i=0; i<inventory.length; i++){
+      carYears.push(inventory[i].car_year);
+    }
+    return carYears;
+  }
+
 
 /**
  * ### Challenge `getCarInfoById`
@@ -284,9 +295,14 @@ function getModelYears(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, idArgument) {
+for (let i=0; i < inventory.length; i++){
+  if (inventory[i].id === idArgument){
+  return 'This is a ${idArgument.car_make} ${idArgument.model}';
+    }
+  }
 }
+
 
 /**
  * ### Challenge `getOlderCars`
